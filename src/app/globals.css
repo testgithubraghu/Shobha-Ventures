@@ -1,0 +1,171 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    @apply font-body text-dark-900 bg-white overflow-x-hidden;
+    width: 100%;
+    position: relative;
+    overscroll-behavior-x: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-dark-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold text-white px-8 py-3 rounded-md font-accent font-semibold 
+    uppercase tracking-wider text-sm hover:bg-primary-600 transition-all duration-300 
+    hover:shadow-lg hover:shadow-gold/30 active:scale-95 relative overflow-hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-shimmer-gold animate-shimmer;
+    background-size: 200% 100%;
+  }
+
+  .btn-outline {
+    @apply border-2 border-gold text-gold px-8 py-3 rounded-md font-accent 
+    font-semibold uppercase tracking-wider text-sm hover:bg-gold hover:text-white 
+    transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 active:scale-95;
+  }
+
+  .btn-dark {
+    @apply bg-dark-900 text-white px-8 py-3 rounded-md font-accent font-semibold 
+    uppercase tracking-wider text-sm hover:bg-dark-800 transition-all duration-300 
+    hover:shadow-lg active:scale-95;
+  }
+
+  .section-heading {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-dark-900;
+  }
+
+  .section-subheading {
+    @apply font-accent text-gold uppercase tracking-[0.3em] text-sm font-semibold mb-4;
+  }
+
+  .gold-line {
+    @apply w-20 h-1 bg-gold;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-gold via-primary-300 to-gold bg-clip-text text-transparent;
+  }
+
+  .overlay-dark {
+    @apply absolute inset-0 bg-dark-900/70;
+  }
+
+  .overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-r from-dark-900/90 via-dark-900/60 to-transparent;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
+/* Loading screen */
+.loading-screen {
+  @apply fixed inset-0 z-[9999] bg-dark-900 flex items-center justify-center;
+}
+
+/* Custom cursor styles */
+@media (min-width: 1024px) {
+  .custom-cursor {
+    cursor: none;
+  }
+}
+
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet {
+  @apply bg-gold/30 opacity-100 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-gold !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-gold !important;
+}
+
+/* Parallax */
+.parallax-bg {
+  will-change: transform;
+}
